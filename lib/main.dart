@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'features/box_interaction/presentation/pages/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,12 +17,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'InteractiveBox',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(title: const Text('InteractiveBox')),
-        body: const Center(child: Text('Welcome to InteractiveBox!')),
+      title: 'Box Generator',
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+        useMaterial3: true,
       ),
+      home: const HomePage(),
     );
   }
 }
